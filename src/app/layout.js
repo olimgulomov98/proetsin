@@ -1,11 +1,25 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin", "cyrillic"] });
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const roboto = Roboto({
+  subsets: ["latin", "cyrillic"],
+  weight: ["300", "400", "500", "700"],
+  display: "swap",
+  variable: "--font-roboto",
+});
 
 export const metadata = {
   metadataBase: new URL("https://proetsin.uz"),
-  title: "PROETSIN",
+  title: {
+    default: "Проецин® — Растительный препарат при синусите | PROETSIN",
+    template: "%s | PROETSIN",
+  },
   description:
     "Проецин® — комбинированный растительный препарат с секретолитическим, противовоспалительным и противовирусным действием для лечения острого и хронического риносинусита. Производитель: Spring Pharmaceutic.",
   keywords: [
@@ -24,6 +38,13 @@ export const metadata = {
     "sinusit",
     "burni tiqilishi",
     "o'simlik preparati",
+    "sinusit davolash",
+    "burun yallig'lanishi",
+    "проецин инструкция",
+    "проецин цена",
+    "проецин аналоги",
+    "лечение насморка",
+    "гайморит лечение",
   ],
   robots: {
     index: true,
@@ -54,13 +75,13 @@ export const metadata = {
         url: "/proetsin.webp",
         width: 900,
         height: 800,
-        alt: "Проецин® таблетки",
+        alt: "Проецин® таблетки №60 — растительный препарат при синусите",
       },
       {
         url: "/proetsin-logo.svg",
         width: 800,
         height: 600,
-        alt: "Проецин логотип",
+        alt: "Проецин® логотип — Spring Pharmaceutic",
       },
     ],
     locale: "ru_RU",
@@ -81,8 +102,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ru">
-      <body className={inter.className}>{children}</body>
+    <html lang="ru" className={`${inter.variable} ${roboto.variable}`}>
+      <body className={roboto.className}>{children}</body>
     </html>
   );
 }

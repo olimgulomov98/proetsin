@@ -1,8 +1,0 @@
-# Robots.txt for proetsin.uz
-User-agent: *
-Allow: /
-Disallow: /_next/static/
-Disallow: /_next/image/
-
-# Sitemap
-Sitemap: https://proetsin.uz/sitemap.xml
